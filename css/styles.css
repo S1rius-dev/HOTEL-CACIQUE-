@@ -1,0 +1,82 @@
+/* === RESET GENERAL === */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía moderna */
+  line-height: 1.6;
+  background-color: #f8f9fa; /* Gris claro tipo Bootstrap */
+  color: #333; /* Texto general */
+  margin: 0;
+  padding: 0;
+
+  /* Para que el footer siempre se quede abajo */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  margin-bottom: 3rem; /* separa el contenido del footer */
+}
+
+
+/* === NAVBAR PERSONALIZADO === */
+.custom-navbar {
+  background-color: #b44554 !important; /* Color principal del proyecto */
+}
+
+.custom-navbar .nav-link {
+  color: #fff !important; /* Texto en blanco */
+  font-weight: 500;
+  transition: color 0.3s ease; /* Animación suave */
+}
+
+.custom-navbar .nav-link:hover {
+  color: #ffc107 !important; /* Amarillo dorado al pasar el mouse */
+}
+
+.custom-navbar .navbar-brand {
+  font-weight: bold;
+  color: #fff !important;
+}
+
+/* === TITULO PRINCIPAL DEL MAIN === */
+.main-title {
+  color: #b44554;             /* Color principal */
+  font-size: 2.5rem;          /* Tamaño grande */
+  font-weight: bold;          /* Resaltado */
+  text-align: center;         /* Centrado */
+  margin-bottom: 20px;        /* Espacio inferior */
+  text-transform: uppercase;  /* Mayúsculas */
+  letter-spacing: 2px;        /* Espaciado entre letras */
+  transition: color 0.3s ease; /* Animación al cambiar color */
+}
+
+.main-title:hover {
+  color: #212529; /* Negro Bootstrap al pasar el mouse */
+}
+
+/* === CARDS / SECCIONES === */
+.card {
+  border: none;
+  border-radius: 0.5rem; /* Esquinas redondeadas */
+}
+
+.card h2,
+.card h3,
+.card h4 {
+  color: #b44554; /* Mismo color del proyecto */
+  font-weight: bold;
+}
+
+/* === FOOTER === */
+footer {
+  background-color: #b44554; /* Mismo color que el header */
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
