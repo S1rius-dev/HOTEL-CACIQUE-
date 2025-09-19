@@ -1,13 +1,11 @@
-/* === RESET GENERAL === */
+/* === RESET GENERAL Y LAYOUT === */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía moderna */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  background-color: #f8f9fa; /* Gris claro tipo Bootstrap */
-  color: #333; /* Texto general */
+  background: linear-gradient(160deg, #f9f9f9, #e6e6e6);
+  color: #333;
   margin: 0;
   padding: 0;
-
-  /* Para que el footer siempre se quede abajo */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -15,68 +13,216 @@ body {
 
 main {
   flex: 1;
-  margin-bottom: 3rem; /* separa el contenido del footer */
+  margin-bottom: 3rem;
+}
+
+/* === HERO === */
+.hero {
+  height: 60vh;
+  background: linear-gradient(
+                rgba(40, 40, 40, 0.95), /* gris navbar */
+                rgba(180, 69, 84, 0.7)  /* vino */
+              ),
+              url('../img/hero-hotel.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 
-/* === NAVBAR PERSONALIZADO === */
+
+.hero-title {
+  font-size: 3rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #eaeaea;
+}
+
+.hero-btn {
+  font-weight: 600;
+  background-color: #b44554;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 0.3rem;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #7a1f2d;
+  transform: translateY(-2px);
+}
+
+/* === NAVBAR MODERNA === */
 .custom-navbar {
-  background-color: #b44554 !important; /* Color principal del proyecto */
-}
-
-.custom-navbar .nav-link {
-  color: #fff !important; /* Texto en blanco */
-  font-weight: 500;
-  transition: color 0.3s ease; /* Animación suave */
-}
-
-.custom-navbar .nav-link:hover {
-  color: #ffc107 !important; /* Amarillo dorado al pasar el mouse */
+  background: rgba(40, 40, 40, 0.95); /* gris oscuro transparente */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 0.7rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .custom-navbar .navbar-brand {
-  font-weight: bold;
-  color: #fff !important;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #b44554 !important;
 }
 
-/* === TITULO PRINCIPAL DEL MAIN === */
-.main-title {
-  color: #b44554;             /* Color principal */
-  font-size: 2.5rem;          /* Tamaño grande */
-  font-weight: bold;          /* Resaltado */
-  text-align: center;         /* Centrado */
-  margin-bottom: 20px;        /* Espacio inferior */
-  text-transform: uppercase;  /* Mayúsculas */
-  letter-spacing: 2px;        /* Espaciado entre letras */
-  transition: color 0.3s ease; /* Animación al cambiar color */
+.custom-navbar .brand-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff; /* cambio a blanco para contraste con fondo oscuro */
 }
 
-.main-title:hover {
-  color: #212529; /* Negro Bootstrap al pasar el mouse */
+.custom-navbar .brand-text .highlight {
+  color: #b44554;
 }
 
-/* === CARDS / SECCIONES === */
-.card {
-  border: none;
-  border-radius: 0.5rem; /* Esquinas redondeadas */
+/* Enlaces del menú */
+.custom-navbar .nav-link {
+  color: #fff !important; /* blanco para enlaces normales */
+  font-weight: 500;
+  margin-left: 0.5rem;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-.card h2,
-.card h3,
-.card h4 {
-  color: #b44554; /* Mismo color del proyecto */
-  font-weight: bold;
+/* Subrayado animado en hover */
+.custom-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #b44554;
+  left: 0;
+  bottom: -5px;
+  transition: width 0.3s ease;
 }
 
-/* === FOOTER === */
-footer {
-  background-color: #b44554; /* Mismo color que el header */
+.custom-navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Enlace activo: subrayado permanente */
+.custom-navbar .nav-link.active {
+  color: #b44554 !important;
+}
+
+.custom-navbar .nav-link.active::after {
+  width: 100%; /* subrayado completo para el enlace activo */
+}
+
+/* Botón CTA */
+.btn-cta {
+  background: #b44554;
   color: #fff;
-  text-align: center;
-  padding: 1rem 0;
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  margin-left: 0.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-footer p {
-  margin: 0;
-  font-size: 0.9rem;
+.btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(180,69,84,0.4);
+}
+
+/* === TÍTULOS === */
+.main-title {
+  color: #b44554;
+  font-size: 2.3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* === SIDEBAR === */
+aside .list-group {
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+aside .list-group-item {
+  border: none;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+aside .list-group-item:hover {
+  background-color: #f8f9fa;
+  color: #b44554;
+}
+
+aside .list-group-item.active {
+  background-color: #b44554 !important;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+/* === SECCIONES === */
+section article {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+section article:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+section article h2 {
+  color: #b44554;
+  font-weight: bold;
+  border-bottom: 3px solid #ffc107;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 1rem;
+}
+
+/* === FOOTER MODERNO === */
+.custom-footer {
+  background: rgba(40, 40, 40, 0.95); /* mismo gris oscuro que navbar */
+  backdrop-filter: blur(10px);
+  color: #fff; /* texto blanco */
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.95rem;
+  border-top: none; /* opcional, se ve más limpio */
+}
+
+.custom-footer a {
+  color: #b44554;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.custom-footer a:hover {
+  text-decoration: underline;
+}
+
+.custom-footer i {
+  font-size: 1.2rem;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.custom-footer i:hover {
+  color: #b44554;
 }

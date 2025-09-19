@@ -2,97 +2,102 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Introducción</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Tu CSS personalizado -->
-    <link rel="stylesheet" href="../css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Cacique Bolívar - Inicio</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- CSS personalizado -->
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
+  <!-- Navbar (inyectado con main.js) -->
+  <div id="navbar-placeholder"></div>
 
-    <!-- Aquí se cargará el navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
-        <div class="container-fluid">
-            <!-- Logo -->
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="../img/logo.jpg" alt="Logo Hotel" width="100" height="60" class="me-2">
-                <span class="Tlogo">Hotel Cacique Bolívar</span>
-            </a>
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container text-center">
+      <h1 class="hero-title">Proyecto Hotel Cacique Bolívar</h1>
+      <p class="hero-subtitle">
+        Un sistema web que moderniza la gestión hotelera y la experiencia de los clientes
+      </p>
+      <a href="introduccion.html" class="btn hero-btn btn-lg mt-3">Explorar Proyecto</a>
+    </div>
+  </header>
 
-            <!-- Botón hamburguesa en pantallas pequeñas -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Enlaces del menú -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="introduccion.html">Introducción</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="proposito.html">Propósito</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="alcance.html">Alcance</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="involucrados.html">involucrados</a>
-                    </li>
-                </ul>
-            </div>
+  <!-- Contenido principal con sidebar -->
+  <main class="container my-5">
+    <div class="row">
+      <!-- Sidebar -->
+      <aside class="col-md-3 mb-4">
+        <div class="list-group shadow-sm">
+          <a href="#bienvenida" class="list-group-item list-group-item-action active">
+            <i class="bi bi-house-door me-2"></i> Bienvenida
+          </a>
+          <a href="#objetivos" class="list-group-item list-group-item-action">
+            <i class="bi bi-bullseye me-2"></i> Objetivos
+          </a>
+          <a href="#beneficios" class="list-group-item list-group-item-action">
+            <i class="bi bi-gift me-2"></i> Beneficios
+          </a>
+          <a href="#impacto" class="list-group-item list-group-item-action">
+            <i class="bi bi-globe me-2"></i> Impacto
+          </a>
         </div>
-    </nav>
+      </aside>
 
-    <main class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="card shadow-lg border-0 rounded-4">
-                    <div class="card-body p-5">
-                        <h1 class="main-title text-center mb-4">
-                            Bienvenido al Proyecto Hotel Cacique Bolívar
-                        </h1>
+      <!-- Secciones -->
+      <section class="col-md-9">
+        <!-- Bienvenida -->
+        <article id="bienvenida" class="mb-5">
+          <h1 class="main-title">Bienvenido al Proyecto Hotel Cacique Bolívar</h1>
+          <p class="lead">
+            En un mundo cada vez más digital, el Hotel Cacique Bolívar da un paso al frente con el
+            desarrollo de una página web integral. Este proyecto busca optimizar la gestión de
+            reservas y brindar a los huéspedes una experiencia moderna y práctica.
+          </p>
+        </article>
 
-                        <p class="lead text-justify">
-                            En un mundo cada vez más digital, el Hotel Cacique Bolívar da un paso al frente con el
-                            desarrollo de una página web integral. Este proyecto busca optimizar la gestión de
-                            reservas y brindar a los huéspedes una experiencia moderna, práctica y atractiva desde
-                            el primer contacto hasta su partida.
-                        </p>
-                        <p class="lead text-justify">
-                            La plataforma permitirá centralizar la información, mejorar los tiempos de respuesta y
-                            ofrecer paquetes turísticos exclusivos que conectan a los visitantes con la riqueza cultural
-                            y natural de Amalfi, Antioquia. Además, su implementación fortalecerá la visibilidad y
-                            reputación del hotel, atrayendo nuevos clientes y fidelizando a quienes buscan un servicio
-                            de calidad.
-                        </p>
-                        <p class="lead text-justify">
-                            Con este proyecto, el Hotel Cacique Bolívar no solo moderniza sus procesos internos,
-                            sino que se posiciona como un referente de innovación en la industria hotelera regional.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+        <!-- Objetivos -->
+        <article id="objetivos" class="mb-5">
+          <h2>Objetivos del Proyecto</h2>
+          <ul>
+            <li>Optimizar la gestión de reservas.</li>
+            <li>Centralizar la información del hotel.</li>
+            <li>Ofrecer paquetes turísticos exclusivos.</li>
+            <li>Mejorar la experiencia del cliente.</li>
+          </ul>
+        </article>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Hotel Cacique Bolívar. Todos los derechos reservados.</p>
-    </footer>
+        <!-- Beneficios -->
+        <article id="beneficios" class="mb-5">
+          <h2>Beneficios Clave</h2>
+          <p>
+            La plataforma permitirá mejorar los tiempos de respuesta y fortalecer la visibilidad del hotel.
+            Además, brindará una experiencia completa desde la reserva hasta la estadía.
+          </p>
+        </article>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Tu JS -->
-    <script src="../js/main.js"></script>
+        <!-- Impacto -->
+        <article id="impacto" class="mb-5">
+          <h2>Impacto Regional</h2>
+          <p>
+            Con este proyecto, el Hotel Cacique Bolívar se posiciona como un referente de innovación
+            en la industria hotelera regional, contribuyendo al turismo y desarrollo de Amalfi, Antioquia.
+          </p>
+        </article>
+      </section>
+    </div>
+  </main>
 
+  <!-- Footer (inyectado con main.js) -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/main.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contexto</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Tu CSS personalizado -->
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="container mt-5">
+    <div class="row">
+      <!-- Sidebar -->
+      <aside class="col-md-3 mb-4">
+        <div class="list-group shadow-sm">
+          <a href="#proposito" class="list-group-item list-group-item-action active"
+            style="background-color:#b44554; border:none;">
+            <i class="bi bi-clipboard-check me-2"></i> Propósito
+          </a>
+          <a href="#alcance" class="list-group-item list-group-item-action">
+            <i class="bi bi-arrows-expand me-2"></i> Alcance
+          </a>
+          <a href="#restricciones" class="list-group-item list-group-item-action">
+            <i class="bi bi-slash-circle me-2"></i> Restricciones
+          </a>
+          <a href="#suposiciones" class="list-group-item list-group-item-action">
+            <i class="bi bi-lightbulb me-2"></i> Suposiciones
+          </a>
+        </div>
+      </aside>
+
+
+      <!-- Contenido -->
+      <section class="col-md-9">
+        <!-- Propósito -->
+        <article id="proposito" class="mb-5">
+          <h1 class="main-title">Propósito del Sistema</h1>
+          <p>
+            El sistema tiene como meta principal modernizar la gestión del Hotel Cacique Bolívar.
+            Busca centralizar reservas, optimizar tiempos de respuesta y ofrecer a los huéspedes
+            una experiencia ágil y confiable desde la primera interacción hasta su salida.
+          </p>
+        </article>
+
+        <!-- Alcance -->
+        <article id="alcance" class="mb-5">
+          <section id="alcance" aria-labelledby="t-alcance" class="mb-5">
+            <h2>Alcance del Sistema</h3>
+            <p>
+              El alcance del sistema abarca las principales funciones necesarias para el
+              <strong>Hotel Cacique Bolívar</strong>, desde la captura de información de clientes
+              hasta la generación de reportes administrativos. Se estructura en tres bloques:
+              <em>entradas</em>, <em>procesos</em> y <em>salidas</em>.
+            </p>
+
+            <div class="row">
+              <!-- Entradas -->
+              <div class="col-md-4 mb-4">
+                <h2>Entradas</h4>
+                <ul class="list-group">
+                  <li class="list-group-item">Datos de clientes (nombre, contacto, preferencias)
+                  </li>
+                  <li class="list-group-item">Información de reservas (fecha, duración, tipo de
+                    habitación)</li>
+                  <li class="list-group-item">Disponibilidad e inventario de habitaciones</li>
+                  <li class="list-group-item">Paquetes turísticos (actividades, precios, extras)
+                  </li>
+                  <li class="list-group-item">PQRS+ (preguntas, quejas, reclamos y sugerencias)
+                  </li>
+                  <li class="list-group-item">Pagos realizados por los clientes</li>
+                </ul>
+              </div>
+
+              <!-- Procesos -->
+              <div class="col-md-4 mb-4">
+                <h2>Procesos</h4>
+                <ul class="list-group">
+                  <li class="list-group-item">Gestión de reservas (crear, modificar, cancelar)
+                  </li>
+                  <li class="list-group-item">Consulta de disponibilidad en tiempo real</li>
+                  <li class="list-group-item">Gestión de paquetes turísticos y extras</li>
+                  <li class="list-group-item">Atención y trazabilidad de PQRS+</li>
+                  <li class="list-group-item">Generación de reportes de clientes, reservas y pagos
+                  </li>
+                  <li class="list-group-item">Control de ocupación y administración de
+                    habitaciones</li>
+                </ul>
+              </div>
+
+              <!-- Salidas -->
+              <div class="col-md-4 mb-4">
+                <h2>Salidas</h4>
+                <ul class="list-group">
+                  <li class="list-group-item">Confirmación digital de reservas</li>
+                  <li class="list-group-item">Disponibilidad actualizada de habitaciones</li>
+                  <li class="list-group-item">Comprobantes de pago y facturación</li>
+                  <li class="list-group-item">Informes de clientes, ocupación y finanzas</li>
+                  <li class="list-group-item">Respuestas formales a PQRS+</li>
+                  <li class="list-group-item">Estadísticas para toma de decisiones estratégicas
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <p class="mt-4">
+              Con este alcance, el sistema busca cubrir tanto las necesidades operativas diarias
+              del hotel como los procesos estratégicos de análisis y mejora continua, asegurando
+              un servicio de calidad y una experiencia digital confiable para los usuarios.
+            </p>
+          </section>
+        </article>
+
+        <!-- Restricciones -->
+        <article id="restricciones" class="mb-5">
+          <h2>Restricciones</h2>
+          <ul>
+            <li>El sistema dependerá de una conexión estable a Internet.</li>
+            <li>El desarrollo se realizará con recursos tecnológicos y presupuestales limitados.</li>
+            <li>La infraestructura de hardware será básica (uso de servidores estándar y hosting accesible).</li>
+          </ul>
+        </article>
+
+        <!-- Suposiciones -->
+        <article id="suposiciones" class="mb-5">
+          <h2>Suposiciones</h2>
+          <ul>
+            <li>Los usuarios contarán con dispositivos modernos y acceso a Internet.</li>
+            <li>El personal del hotel podrá adaptarse rápidamente al uso de la plataforma.</li>
+            <li>Se espera un aumento progresivo en el flujo de clientes gracias a la digitalización.</li>
+          </ul>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
