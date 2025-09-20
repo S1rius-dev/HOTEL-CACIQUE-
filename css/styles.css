@@ -18,7 +18,7 @@ main {
 
 /* === HERO === */
 .hero {
-  height: 60vh;
+  height: 50vh;
   background: linear-gradient(
                 rgba(40, 40, 40, 0.95), /* gris navbar */
                 rgba(180, 69, 84, 0.7)  /* vino */
