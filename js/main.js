@@ -1,6 +1,6 @@
 (function () {
   // === Navbar ===
-  const NAV_PATH = "../html/navbar.html"; // Ajusta la ruta según tu estructura
+  const NAV_PATH = "navbar.html"; // Ajusta la ruta según tu estructura
   fetch(NAV_PATH)
     .then(resp => resp.text())
     .then(html => {
@@ -18,7 +18,7 @@
     .catch(err => console.error("Error cargando navbar:", err));
 
   // === Footer ===
-  const FOOTER_PATH = "../html/footer.html"; // Ajusta la ruta según tu estructura
+  const FOOTER_PATH = "footer.html"; // Ajusta la ruta según tu estructura
   fetch(FOOTER_PATH)
     .then(resp => resp.text())
     .then(html => {
