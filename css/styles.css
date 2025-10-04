@@ -19,11 +19,12 @@ main {
 /* === HERO === */
 .hero {
   height: 50vh;
-  background: linear-gradient(
-                rgba(40, 40, 40, 0.95), /* gris navbar */
-                rgba(180, 69, 84, 0.7)  /* vino */
-              ),
-              url('../img/hero-hotel.jpg') center/cover no-repeat;
+  background: linear-gradient(rgba(40, 40, 40, 0.95),
+      /* gris navbar */
+      rgba(180, 69, 84, 0.7)
+      /* vino */
+    ),
+    url('../img/hero-hotel.jpg') center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,9 +62,10 @@ main {
 
 /* === NAVBAR MODERNA === */
 .custom-navbar {
-  background: rgba(40, 40, 40, 0.95); /* gris oscuro transparente */
+  background: rgba(40, 40, 40, 0.95);
+  /* gris oscuro transparente */
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 0.7rem 1rem;
   position: sticky;
   top: 0;
@@ -79,7 +81,8 @@ main {
 .custom-navbar .brand-text {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #fff; /* cambio a blanco para contraste con fondo oscuro */
+  color: #fff;
+  /* cambio a blanco para contraste con fondo oscuro */
 }
 
 .custom-navbar .brand-text .highlight {
@@ -88,7 +91,8 @@ main {
 
 /* Enlaces del menú */
 .custom-navbar .nav-link {
-  color: #fff !important; /* blanco para enlaces normales */
+  color: #fff !important;
+  /* blanco para enlaces normales */
   font-weight: 500;
   margin-left: 0.5rem;
   position: relative;
@@ -117,7 +121,8 @@ main {
 }
 
 .custom-navbar .nav-link.active::after {
-  width: 100%; /* subrayado completo para el enlace activo */
+  width: 100%;
+  /* subrayado completo para el enlace activo */
 }
 
 /* Botón CTA */
@@ -132,7 +137,7 @@ main {
 
 .btn-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(180,69,84,0.4);
+  box-shadow: 0 4px 12px rgba(180, 69, 84, 0.4);
 }
 
 /* === TÍTULOS === */
@@ -147,10 +152,17 @@ main {
 }
 
 /* === SIDEBAR === */
+aside {
+  position: sticky;
+  top: 1rem; /* distancia desde arriba */
+  height: calc(100vh - 2rem); /* ocupa casi toda la altura de la ventana */
+  overflow-y: auto; /* scroll interno si se pasa de alto */
+}
+
 aside .list-group {
   border-radius: 0.5rem;
   background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 aside .list-group-item {
@@ -171,19 +183,31 @@ aside .list-group-item.active {
   font-weight: bold;
 }
 
+/* Reset: todos los íconos transparentes */
+aside .list-group-item i {
+  background-color: transparent;
+  padding: 4px;
+  border-radius: 6px; /* opcional, para que quede redondeado */
+  transition: background-color 0.3s ease;
+}
+
+aside .list-group-item.active i {
+  background-color: #b44554; /* vino */
+  color: #fff; /* ícono en blanco */
+}
 /* === SECCIONES === */
 section article {
   background: #fff;
   padding: 2rem;
   border-radius: 0.5rem;
   margin-bottom: 2rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 section article:hover {
   transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 section article h2 {
@@ -195,15 +219,28 @@ section article h2 {
   margin-bottom: 1rem;
 }
 
+section article h3 {
+  color: #333; /* gris oscuro para bajar intensidad */
+  font-weight: 600; /* menos fuerte que bold */
+  border-left: 4px solid #b44554; /* barra lateral en vino */
+  padding-left: 10px;
+  margin-bottom: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+
 /* === FOOTER MODERNO === */
 .custom-footer {
-  background: rgba(40, 40, 40, 0.95); /* mismo gris oscuro que navbar */
+  background: rgba(40, 40, 40, 0.95);
+  /* mismo gris oscuro que navbar */
   backdrop-filter: blur(10px);
-  color: #fff; /* texto blanco */
+  color: #fff;
+  /* texto blanco */
   text-align: center;
   padding: 1.5rem 0;
   font-size: 0.95rem;
-  border-top: none; /* opcional, se ve más limpio */
+  border-top: none;
+  /* opcional, se ve más limpio */
 }
 
 .custom-footer a {

@@ -26,3 +26,32 @@
     })
     .catch(err => console.error("Error cargando footer:", err));
 })();
+
+(function highlightActiveSection() {
+  // === Sidebar + Sección activa ===
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("article[id]");
+    const navLinks = document.querySelectorAll("aside .list-group-item");
+
+    // Usamos IntersectionObserver para detectar la visibilidad de cada sección
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Quitar activo de todos
+          navLinks.forEach(link => link.classList.remove("active"));
+          sections.forEach(sec => sec.classList.remove("section-active"));
+
+          // Activar el enlace correspondiente
+          const link = document.querySelector(`aside .list-group-item[href="#${entry.target.id}"]`);
+          if (link) link.classList.add("active");
+
+          // Activar el estilo en la sección
+          entry.target.classList.add("section-active");
+        }
+      });
+    }, { threshold: 0.6 }); // 60% visible para marcar como activa
+
+    sections.forEach(section => observer.observe(section));
+  });
+})();

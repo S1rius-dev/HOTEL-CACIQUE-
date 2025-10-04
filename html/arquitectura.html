@@ -2,36 +2,38 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposito</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Tu CSS personalizado -->
-    <link rel="stylesheet" href="../css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diseño Arquitectónico</title>
+  <link rel="icon" type="image/jpg" href="/img/logo.jpg">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Tu CSS personalizado -->
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
 
-    <div id="navbar-placeholder"></div>
+  <div id="navbar-placeholder"></div>
 
-    <main class="container mt-5">
+  <main class="container mt-5">
     <div class="row">
       <!-- Sidebar -->
       <aside class="col-md-3 mb-4">
         <div class="list-group shadow-sm">
-          <a href="#proposito" class="list-group-item list-group-item-action active"
-            style="background-color:#b44554; border:none;">
-            <i class="bi bi-clipboard-check me-2"></i> 
+          <a href="#enfoque" class="list-group-item list-group-item-action">
+            <i class="bi bi-clipboard-check me-2"></i>Enfoque de la arquitectura
           </a>
-          <a href="#alcance" class="list-group-item list-group-item-action">
-            <i class="bi bi-arrows-expand me-2"></i> 
+          <a href="#desiciones" class="list-group-item list-group-item-action">
+            <i class="bi bi-arrows-expand me-2"></i>Desiciones importantes
           </a>
           <a href="#restricciones" class="list-group-item list-group-item-action">
-            <i class="bi bi-slash-circle me-2"></i> 
+            <i class="bi bi-slash-circle me-2"></i>
           </a>
           <a href="#suposiciones" class="list-group-item list-group-item-action">
-            <i class="bi bi-lightbulb me-2"></i> 
+            <i class="bi bi-lightbulb me-2"></i>
           </a>
         </div>
       </aside>
@@ -39,23 +41,59 @@
 
       <!-- Contenido -->
       <section class="col-md-9">
-        <!-- Propósito -->
-        <article id="proposito" class="mb-5">
-          <h1 class="main-title"></h1>
+        <article id="enfoque" class="mb-5">
+          <h2>Enfoque de la Arquitectura</h2>
           <p>
+            La arquitectura seleccionada para el sistema del <strong>Hotel Cacique Bolívar</strong> se basa en el patrón
+            <em>Modelo-Vista-Controlador (MVC)</em>,
+            implementado con <strong>Spring Boot</strong> y <strong>Java</strong>. Este enfoque permite separar de forma
+            clara la lógica de negocio, la interfaz de usuario
+            y el control de flujo, lo que facilita el mantenimiento y la escalabilidad del proyecto.
           </p>
+          <h3>Elección de Estilo</h3>
+          <p>
+            El estilo arquitectónico elegido es <strong>Arquitectura en Capas</strong> bajo el patrón MVC.
+            En este esquema:
+          </p>
+          <ul>
+            <li><strong>Modelo:</strong> gestiona los datos y reglas de negocio (reservas, clientes, paquetes, pagos).
+            </li>
+            <li><strong>Vista:</strong> ofrece una interfaz web accesible desde dispositivos móviles y de escritorio.
+            </li>
+            <li><strong>Controlador:</strong> actúa como intermediario entre la vista y el modelo, procesando
+              solicitudes y devolviendo respuestas.</li>
+          </ul>
+
+          <h3>Justificación</h3>
+          <p>
+            La elección del patrón MVC con Spring Boot responde a varios factores clave:
+          </p>
+          <ul>
+            <li><strong>Mantenibilidad:</strong> la separación de responsabilidades reduce la complejidad y permite
+              modificar módulos de forma independiente.</li>
+            <li><strong>Escalabilidad:</strong> el sistema puede crecer incorporando nuevas funcionalidades (paquetes
+              turísticos, PQRS+) sin afectar los módulos existentes.</li>
+            <li><strong>Compatibilidad:</strong> al ser una aplicación web, garantiza acceso desde cualquier dispositivo
+              con conexión a Internet.</li>
+            <li><strong>Productividad:</strong> Spring Boot proporciona herramientas y configuraciones que agilizan el
+              desarrollo y la integración con bases de datos.</li>
+          </ul>
         </article>
 
-        
+        <article id="desiciones" class="mb-5">
+
+        </article>
+
+
       </section>
     </div>
   </main>
-     <!-- Footer -->
+  <!-- Footer -->
   <div id="footer-placeholder"></div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/main.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 
 </html>
