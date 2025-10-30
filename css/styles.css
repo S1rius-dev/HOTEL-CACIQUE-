@@ -19,18 +19,18 @@ main {
 /* === HERO === */
 .hero {
   height: 50vh;
-  background: linear-gradient(rgba(40, 40, 40, 0.95),
-      /* gris navbar */
-      rgba(180, 69, 84, 0.7)
-      /* vino */
+  background: 
+    linear-gradient(
+      rgba(40, 40, 40, 0.5),   /* gris oscuro semi */
+      rgba(40, 40, 40, 0.5)
     ),
     url('../img/hero-hotel.jpg') center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  color: white;
 }
-
 
 
 .hero-title {

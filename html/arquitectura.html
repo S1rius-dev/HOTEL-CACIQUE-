@@ -1,99 +1,791 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diseño Arquitectónico</title>
+    <link rel="icon" type="image/jpg" href="/img/logo.jpg" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Tu CSS personalizado -->
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diseño Arquitectónico</title>
-  <link rel="icon" type="image/jpg" href="/img/logo.jpg">
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-   <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- Tu CSS personalizado -->
-  <link rel="stylesheet" href="../css/styles.css">
-</head>
+  <body>
+    <div id="navbar-placeholder"></div>
 
-<body>
+    <main class="container mt-5">
+      <div class="row">
+        <!-- Sidebar -->
+        <aside class="col-md-3 mb-4">
+          <div class="list-group shadow-sm">
+            <a href="#enfoque" class="list-group-item list-group-item-action">
+              <i class="bi bi-clipboard-check me-2"></i>Enfoque de la
+              arquitectura
+            </a>
+            <a
+              href="#desiciones"
+              class="list-group-item list-group-item-action"
+            >
+              <i class="bi bi-arrows-expand me-2"></i>Desiciones importantes
+            </a>
+            <a
+              href="#casode-usos"
+              class="list-group-item list-group-item-action"
+            >
+              <i class="bi bi-diagram-3 me-2"></i>Diagramas de caso de uso
+            </a>
+            <a href="#clases" class="list-group-item list-group-item-action">
+              <i class="bi bi-diagram-2 me-2"></i>Diagrama de clases
+            </a>
+            <a href="#UML" class="list-group-item list-group-item-action">
+              <i class="bi bi-gear me-2"></i>Diagrama UML
+            </a>
+          </div>
+        </aside>
 
-  <div id="navbar-placeholder"></div>
+        <!-- Contenido -->
+        <section class="col-md-9">
+          <article id="enfoque" class="mb-5">
+            <h2>Enfoque de la Arquitectura</h2>
+            <p>
+              La arquitectura seleccionada para el sistema del
+              <strong>Hotel Cacique Bolívar</strong> se basa en el patrón
+              <em>Modelo-Vista-Controlador (MVC)</em>, implementado con
+              <strong>Spring Boot</strong> y <strong>Java</strong>. Este enfoque
+              permite separar de forma clara la lógica de negocio, la interfaz
+              de usuario y el control de flujo, lo que facilita el mantenimiento
+              y la escalabilidad del proyecto.
+            </p>
+            <h3>Elección de Estilo</h3>
+            <p>
+              El estilo arquitectónico elegido es
+              <strong>Arquitectura en Capas</strong> bajo el patrón MVC. En este
+              esquema:
+            </p>
+            <ul>
+              <li>
+                <strong>Modelo:</strong> gestiona los datos y reglas de negocio
+                (reservas, clientes, paquetes, pagos).
+              </li>
+              <li>
+                <strong>Vista:</strong> ofrece una interfaz web accesible desde
+                dispositivos móviles y de escritorio.
+              </li>
+              <li>
+                <strong>Controlador:</strong> actúa como intermediario entre la
+                vista y el modelo, procesando solicitudes y devolviendo
+                respuestas.
+              </li>
+            </ul>
 
-  <main class="container mt-5">
-    <div class="row">
-      <!-- Sidebar -->
-      <aside class="col-md-3 mb-4">
-        <div class="list-group shadow-sm">
-          <a href="#enfoque" class="list-group-item list-group-item-action">
-            <i class="bi bi-clipboard-check me-2"></i>Enfoque de la arquitectura
-          </a>
-          <a href="#desiciones" class="list-group-item list-group-item-action">
-            <i class="bi bi-arrows-expand me-2"></i>Desiciones importantes
-          </a>
-          <a href="#restricciones" class="list-group-item list-group-item-action">
-            <i class="bi bi-slash-circle me-2"></i>
-          </a>
-          <a href="#suposiciones" class="list-group-item list-group-item-action">
-            <i class="bi bi-lightbulb me-2"></i>
-          </a>
-        </div>
-      </aside>
+            <h3>Justificación</h3>
+            <p>
+              La elección del patrón MVC con Spring Boot responde a varios
+              factores clave:
+            </p>
+            <ul>
+              <li>
+                <strong>Mantenibilidad:</strong> la separación de
+                responsabilidades reduce la complejidad y permite modificar
+                módulos de forma independiente.
+              </li>
+              <li>
+                <strong>Escalabilidad:</strong> el sistema puede crecer
+                incorporando nuevas funcionalidades (paquetes turísticos, PQRS+)
+                sin afectar los módulos existentes.
+              </li>
+              <li>
+                <strong>Compatibilidad:</strong> al ser una aplicación web,
+                garantiza acceso desde cualquier dispositivo con conexión a
+                Internet.
+              </li>
+              <li>
+                <strong>Productividad:</strong> Spring Boot proporciona
+                herramientas y configuraciones que agilizan el desarrollo y la
+                integración con bases de datos.
+              </li>
+            </ul>
+          </article>
 
+          <article id="desiciones" class="mb-5">
+            <h2>Decisión Arquitectónica 1: Seguridad en el acceso a la BD</h2>
+            <h3>Contexto:</h3>
+            <p>
+              El sistema manejará datos sensibles de huéspedes, reservas, pagos
+              y PQRS+, por lo que es necesario proteger la información frente a
+              accesos no autorizados.
+            </p>
+            <h3>Decisión:</h3>
+            <p>
+              Solo la capa de negocio (servidor de aplicaciones Java) tendrá
+              acceso directo a la base de datos MySQL, utilizando credenciales
+              encriptadas y evitando que el cliente web acceda directamente.
+            </p>
+            <h3>Consecuencias:</h3>
+            <p>
+              ✅ Positivo: Incrementa la seguridad y evita fugas de información.
+              <br />
+              ❌ Negativo: Puede dificultar pruebas rápidas desde el cliente si
+              no hay acceso directo a BD.
+            </p>
+            <br /><br />
 
-      <!-- Contenido -->
-      <section class="col-md-9">
-        <article id="enfoque" class="mb-5">
-          <h2>Enfoque de la Arquitectura</h2>
-          <p>
-            La arquitectura seleccionada para el sistema del <strong>Hotel Cacique Bolívar</strong> se basa en el patrón
-            <em>Modelo-Vista-Controlador (MVC)</em>,
-            implementado con <strong>Spring Boot</strong> y <strong>Java</strong>. Este enfoque permite separar de forma
-            clara la lógica de negocio, la interfaz de usuario
-            y el control de flujo, lo que facilita el mantenimiento y la escalabilidad del proyecto.
-          </p>
-          <h3>Elección de Estilo</h3>
-          <p>
-            El estilo arquitectónico elegido es <strong>Arquitectura en Capas</strong> bajo el patrón MVC.
-            En este esquema:
-          </p>
-          <ul>
-            <li><strong>Modelo:</strong> gestiona los datos y reglas de negocio (reservas, clientes, paquetes, pagos).
+            <h2>
+              Decisión Arquitectónica 2: Autenticación y manejo de usuarios
+            </h2>
+            <h3>Contexto:</h3>
+            <p>
+              Se identificó la necesidad de diferenciar roles (cliente,
+              recepcionista, gerente, administrador) para limitar accesos según
+              el perfil.
+            </p>
+            <h3>Decisión:</h3>
+            <p>
+              Implementar un sistema de autenticación con roles y permisos,
+              administrado desde el módulo de perfiles.
+            </p>
+            <h3>Consecuencias:</h3>
+            <p>
+              ✅ Positivo: Previene que un usuario sin permisos acceda a
+              funciones críticas (ej. modificar reservas, anular pagos). <br />
+              ❌ Negativo: Aumenta la complejidad del desarrollo y mantenimiento
+              de roles.
+            </p>
+            <br />
+            <br />
+
+            <h2>
+              Decisión Arquitectónica 3: Rendimiento en consultas e informes
+            </h2>
+            <h3>Contexto:</h3>
+            <p>
+              El sistema debe soportar consultas frecuentes (estado de reservas,
+              disponibilidad de habitaciones, informes de pagos y clientes) con
+              tiempos de respuesta aceptables.
+            </p>
+            <h3>Decisión:</h3>
+            <p>
+              Optimizar la base de datos con índices en campos de búsqueda
+              comunes (código de reserva, número de habitación, documento de
+              cliente, fechas).
+            </p>
+            <h3>Consecuencias:</h3>
+            <p>
+              ✅ Positivo: Mejora la velocidad de búsqueda y reduce tiempos de
+              espera. <br />
+              ❌ Negativo: Mayor consumo de espacio en disco y mantenimiento de
+              índices adicionales.
+            </p>
+            <br />
+            <br />
+
+            <h2>
+              Decisión Arquitectónica 4: Escalabilidad con microservicio de IA
+            </h2>
+            <h3>Contexto:</h3>
+            <p>
+              Se plantea que en el futuro se pueda integrar un servicio de IA
+              para análisis de datos (ejemplo: predicciones de ocupación o
+              sugerencias de paquetes turísticos).
+            </p>
+            <h3>Decisión:</h3>
+            <p>
+              Desplegar la IA como microservicio independiente que se comunique
+              vía API con el servidor de aplicaciones.
+            </p>
+            <h3>Consecuencias:</h3>
+            <p>
+              ✅ Positivo: Escalable, se puede mejorar la IA sin afectar el
+              resto del sistema. <br />
+              ❌ Negativo: Incrementa la complejidad del despliegue y requiere
+              asegurar comunicación entre servicios.
+            </p>
+            <br /><br />
+
+            <h2>
+              Decisión Arquitectónica 5: Disponibilidad y copias de seguridad
+            </h2>
+            <h3>Contexto:</h3>
+            <p>
+              El sistema debe estar disponible 24/7 para que clientes y
+              recepcionistas puedan consultar reservas en cualquier momento.
+              Además, se deben proteger los datos contra pérdidas accidentales o
+              ataques.
+            </p>
+            <h3>Decisión:</h3>
+            <p>
+              Configurar el sistema con disponibilidad continua y realizar
+              copias de seguridad automáticas cada 6 horas en un servidor
+              externo.
+            </p>
+            <h3>Consecuencias:</h3>
+            <p>
+              ✅ Positivo: Se garantiza continuidad del servicio y recuperación
+              de información en caso de fallos. <br />
+              ❌ Negativo: Aumenta el costo de almacenamiento y administración
+              de backups externos.
+            </p>
+            <br />
+            <br />
+
+            <h2>
+              Decisión Arquitectónica 6: Interfaz de usuario web responsiva
+            </h2>
+            <h3>Contexto:</h3>
+            <p>
+              El hotel tiene clientes que acceden desde diferentes dispositivos
+              (PC, tablet, smartphone), por lo que la experiencia debe ser
+              fluida y adaptable.
+            </p>
+            <h3>Decisión:</h3>
+            <p>
+              Diseñar la interfaz en formato web responsivo con HTML5, CSS3 y
+              frameworks adaptativos, usando una paleta definida (gris claro,
+              azul claro y blanco).
+            </p>
+            <h3>Consecuencias:</h3>
+            <p>
+              ✅ Positivo: Mejora la usabilidad y accesibilidad para cualquier
+              dispositivo. <br />
+              ❌ Negativo: Aumenta el tiempo de desarrollo y pruebas para
+              garantizar compatibilidad en múltiples navegadores.
+            </p>
+            <br /><br />
+
+            <h2>
+              Decisión Arquitectónica 7: Tecnología de base de datos relacional
+              (MySQL)
+            </h2>
+            <h3>Contexto:</h3>
+            <p>
+              El sistema requiere almacenar reservas, clientes, habitaciones,
+              pagos, paquetes turísticos y PQRS+ con integridad y consistencia
+              de la información.
+            </p>
+            <h3>Decisión:</h3>
+            <p>
+              Usar MySQL como gestor de base de datos relacional, con soporte a
+              transacciones y alto nivel de compatibilidad con Java.
+            </p>
+            <h3>Consecuencias:</h3>
+            <p>
+              ✅ Positivo: Garantiza integridad de datos, amplia documentación y
+              soporte; fácil integración con aplicaciones Java. <br />
+              ❌ Negativo: Puede limitar la escalabilidad horizontal frente a
+              bases NoSQL en escenarios de gran volumen.
+            </p>
+            <br />
+            <br />
+
+            <h2>
+              Decisión Arquitectónica 8: Comunicación segura mediante HTTPS
+            </h2>
+            <h3>Contexto:</h3>
+            <p>
+              El sistema estará expuesto en la web para clientes y
+              administradores, por lo que es fundamental garantizar la
+              confidencialidad de datos sensibles como contraseñas, reservas y
+              pagos.
+            </p>
+            <h3>Decisión:</h3>
+            <p>
+              Implementar comunicación cifrada usando HTTPS con TLS, asegurando
+              autenticidad del servidor y confidencialidad en el intercambio de
+              información.
+            </p>
+            <h3>Consecuencias:</h3>
+            <p>
+              ✅ Positivo: Protege datos sensibles en tránsito y genera
+              confianza en los usuarios. <br />
+              ❌ Negativo: Aumenta el consumo de recursos del servidor debido al
+              cifrado y requiere certificados válidos renovados periódicamente.
+            </p>
+            <br /><br />
+
+            <h2>
+              Decisión Arquitectónica 9: Manejo de errores, logs y alertas
+            </h2>
+            <h3>Contexto:</h3>
+            <p>
+              El sistema debe garantizar confiabilidad y trazabilidad en las
+              operaciones críticas como reservas, pagos y gestión de clientes.
+              Si ocurre un error (caída del servidor, fallo en conexión BD,
+              datos inválidos, etc.), se debe detectar y notificar de forma
+              clara al usuario y al administrador.
+            </p>
+            <h3>Decisión:</h3>
+            <p>
+              Implementar un módulo de manejo de errores centralizado con tres
+              niveles:
+            </p>
+            <li>
+              <strong>Logs internos:</strong> registro detallado de errores en
+              servidor de aplicaciones (Java), con nivel de severidad (INFO,
+              WARNING, ERROR, CRITICAL).
             </li>
-            <li><strong>Vista:</strong> ofrece una interfaz web accesible desde dispositivos móviles y de escritorio.
+            <li>
+              <strong>Alertas al usuario final:</strong> mensajes claros en la
+              interfaz (“No se pudo procesar su pago, intente nuevamente o
+              contacte soporte”), evitando mostrar detalles técnicos.
             </li>
-            <li><strong>Controlador:</strong> actúa como intermediario entre la vista y el modelo, procesando
-              solicitudes y devolviendo respuestas.</li>
-          </ul>
+            <li>
+              <strong>Alertas al administrador: </strong>notificación automática
+              por correo o panel interno cuando se produzcan errores críticos
+              (ejemplo: falla en la base de datos, caída del sistema de
+              reservas).
+            </li>
+            <h3>Consecuencias:</h3>
+            <p>
+              ✅ Positivo: Mejora la confiabilidad, facilita el diagnóstico de
+              problemas y permite actuar de forma proactiva ante fallas. <br />
+              ❌ Negativo: Requiere mayor esfuerzo en el desarrollo y
+              almacenamiento de registros, además de una política de limpieza de
+              logs para evitar saturación.
+            </p>
+            <br />
+            <br />
 
-          <h3>Justificación</h3>
-          <p>
-            La elección del patrón MVC con Spring Boot responde a varios factores clave:
-          </p>
-          <ul>
-            <li><strong>Mantenibilidad:</strong> la separación de responsabilidades reduce la complejidad y permite
-              modificar módulos de forma independiente.</li>
-            <li><strong>Escalabilidad:</strong> el sistema puede crecer incorporando nuevas funcionalidades (paquetes
-              turísticos, PQRS+) sin afectar los módulos existentes.</li>
-            <li><strong>Compatibilidad:</strong> al ser una aplicación web, garantiza acceso desde cualquier dispositivo
-              con conexión a Internet.</li>
-            <li><strong>Productividad:</strong> Spring Boot proporciona herramientas y configuraciones que agilizan el
-              desarrollo y la integración con bases de datos.</li>
-          </ul>
-        </article>
+            <h2>Decisión Arquitectónica 10: Consumo de APIs externas</h2>
+            <h3>Contexto:</h3>
+            <p>
+              El sistema del Hotel Cacique Bolívar debe ofrecer valor agregado a
+              sus clientes, como mostrar disponibilidad de destinos turísticos,
+              integración con pasarelas de pago o incluso conectarse con
+              servicios de mapas (ej. Google Maps) para mejorar la experiencia.
+              Estas integraciones requieren consumir APIs externas de manera
+              segura y eficiente.
+            </p>
+            <h3>Decisión:</h3>
+            <p>
+              Implementar
+              <strong>un módulo de integración de APIs externas</strong> con las
+              siguientes características:
+            </p>
+            <li>
+              Uso de <strong>conexiones HTTPS</strong>para proteger la
+              comunicación.
+            </li>
+            <li>
+              Manejo de
+              <strong>tokens o llaves de acceso seguras</strong>almacenadas en
+              el servidor (no en el cliente).
+            </li>
+            <li>
+              Establecer <strong>tiempos de espera (timeouts)</strong>y
+              reintentos limitados para evitar bloqueos en caso de fallo
+              externo.
+            </li>
+            <li>
+              Normalización de las respuestas de las APIs para integrarlas al
+              sistema interno (ej. conversión de datos de reservas turísticas o
+              pagos al formato interno).
+            </li>
+            <h3>Consecuencias:</h3>
+            <p>
+              ✅ Positivo: Amplía la funcionalidad del sistema (ej. pagos en
+              línea, integración con mapas, servicios turísticos locales).
+              <br />
+              ❌ Negativo: Dependencia de terceros; si la API externa falla o
+              cambia, puede afectar la operación del sistema.
+            </p>
+            <br />
+            <br />
 
-        <article id="desiciones" class="mb-5">
+            <h2>
+              Decisión Arquitectónica 11: Migración y cambio de tecnologías
+            </h2>
+            <h3>Contexto:</h3>
+            <p>
+              La tecnología evoluciona rápidamente y el sistema del Hotel
+              Cacique Bolívar debe adaptarse para mantenerse vigente.
+              Actualmente se plantea el uso de Java y MySQL, pero en el futuro
+              podría ser necesario migrar a
+              <strong>
+                otros lenguajes, frameworks o motores de base de datos</strong
+              >
+              que ofrezcan mejor rendimiento, escalabilidad o soporte.
+            </p>
+            <h3>Decisión:</h3>
+            <p>
+              Diseñar el sistema con una
+              <strong>arquitectura modular y desacoplada</strong>, que permita
+              reemplazar componentes tecnológicos sin afectar el resto del
+              sistema. Esto incluye:
+            </p>
+            <li>
+              Uso de <strong>capas bien definidas </strong>(presentación,
+              negocio, datos).
+            </li>
+            <li>
+              Aplicacion de <strong>interfaces y controladores</strong>para que
+              el cambio de BD (ej. de MySQL a PostgreSQL) o backend (ej. de Java
+              a .NET o Node.js) no afecte la lógica de negocio.
+            </li>
+            <li>
+              Documentación clara de dependencias y procesos de migración.
+            </li>
+            <h3>Consecuencias:</h3>
+            <p>
+              ✅ Positivo: Permite actualizar el sistema a nuevas tecnologías
+              sin rehacer todo el proyecto, alargando su vida útil. <br />
+              ❌ Negativo: Requiere mayor esfuerzo inicial en la planificación y
+              pruebas de integración para asegurar compatibilidad futura.
+            </p>
+            <br />
+            <br />
 
-        </article>
+            <h2>
+              Decisión Arquitectónica 12: Soporte de idioma y búsquedas
+              avanzadas
+            </h2>
+            <h3>Contexto:</h3>
+            <p>
+              El hotel atiende tanto a clientes locales como extranjeros, lo que
+              implica la necesidad de un sistema
+              <strong>multilingüe</strong> (mínimo español e inglés). Además,
+              los usuarios requieren encontrar rápidamente información sobre
+              reservas, habitaciones, paquetes turísticos o PQRS+ mediante un
+              buscador eficiente.
+            </p>
+            <h3>Decisión:</h3>
+            <p>
+              Implementar un
+              <strong>módulo de internacionalización (i18n)</strong> para la
+              interfaz de usuario, permitiendo cambiar de idioma dinámicamente.
+              Asimismo, integrar un
+              <strong>motor de búsqueda optimizado</strong> (ej. consultas con
+              filtros por nombre, fechas, tipo de habitación, destino
+              turístico).
+            </p>
+            <h3>Consecuencias:</h3>
+            <p>
+              ✅ Positivo: Mejora la experiencia del usuario al adaptarse a
+              diferentes idiomas y facilita la localización rápida de
+              información. <br />
+              ❌ Negativo: Incrementa la complejidad del desarrollo y
+              mantenimiento (traducciones, validación de textos y configuración
+              de búsquedas eficientes).
+            </p>
+            <br />
+            <br />
+
+            <h2>Decisión Arquitectónica 13: Generación de reportes</h2>
+            <h3>Contexto:</h3>
+            <p>
+              Los gerentes y administradores del hotel necesitan consultar y
+              exportar información de reservas, pagos, clientes y PQRS+ de forma
+              clara y portable. El sistema debe permitir generar
+              <strong>reportes en diferentes formatos</strong> para análisis y
+              presentación, evitando la manipulación manual de datos.
+            </p>
+            <h3>Decisión:</h3>
+            <p>
+              Incorporar un
+              <strong>módulo de generación de reportes</strong> con soporte a
+              <strong>formatos Excel (XLSX) y PDF.</strong> Los reportes podrán
+              filtrarse por rangos de fechas, estados y otros criterios, y
+              estarán disponibles para descarga desde la interfaz web. Se
+              utilizarán librerías estándar (ej. Apache POI o JasperReports)
+              para asegurar compatibilidad.
+            </p>
+            <h3>Consecuencias:</h3>
+            <p>
+              ✅ Positivo: Facilita la toma de decisiones y el análisis externo
+              de la información; los reportes pueden compartirse fácilmente con
+              terceros. <br />
+              ❌ Negativo: Aumenta el consumo de recursos del servidor durante
+              la generación de reportes grandes y requiere pruebas adicionales
+              para mantener el formato correcto.
+            </p>
+            <br />
+            <br />
+
+            <h2>
+              Decisión Arquitectónica 14: Soporte para grandes volúmenes de
+              datos y usuarios
+            </h2>
+            <h3>Contexto:</h3>
+            <p>
+              El sistema del Hotel Cacique Bolívar debe estar preparado para
+              crecer y manejar desde
+              <strong>pequeños volúmenes (100 registros/usuarios)</strong> hasta
+              <strong>grandes escalas (1.000.000 o más)</strong>, garantizando
+              estabilidad en la gestión de clientes, reservas, habitaciones,
+              pagos y PQRS+.
+            </p>
+            <h3>Decisión:</h3>
+            <p>
+              Adoptar una <strong>arquitectura escalable</strong> con las
+              siguientes prácticas:
+            </p>
+            <li>
+              Uso de
+              <strong>índices y particionamiento en la base de datos</strong>
+              para optimizar consultas masivas.
+            </li>
+            <li>
+              Implementación de <strong>caché</strong> en operaciones frecuentes
+              (ej. disponibilidad de habitaciones).
+            </li>
+            <li>
+              Configuración de <strong>balanceadores de carga</strong> y
+              posibilidad de <strong>escalado horizontal</strong> en el servidor
+              de aplicaciones.
+            </li>
+            <li>
+              Planificación de
+              <strong>migración a bases de datos distribuidas</strong> si la
+              demanda supera la capacidad de un solo servidor.
+            </li>
+            <h3>Consecuencias:</h3>
+            <p>
+              ✅ Positivo: El sistema podrá atender tanto a un hotel pequeño
+              como a una cadena de hoteles con millones de registros, sin
+              rehacer la arquitectura. <br />
+              ❌ Negativo: Implica mayor complejidad técnica y costos de
+              infraestructura (servidores adicionales, monitoreo y mantenimiento
+              de escalabilidad).
+            </p>
+            <br />
+            <br />
+
+            <h2>Decisión Arquitectónica 15: Integración con redes sociales</h2>
+            <h3>Contexto:</h3>
+            <p>
+              Los clientes del hotel suelen interactuar en plataformas como
+              <strong>Facebook, Instagram y WhatsApp,</strong> donde buscan
+              información, promociones o realizan consultas rápidas. Para
+              mejorar la experiencia del cliente y aumentar la visibilidad del
+              hotel, se debe integrar el sistema con estas redes sociales.
+            </p>
+            <h3>Decisión:</h3>
+            <p>
+              Implementar un
+              <strong>módulo de integración con redes sociales</strong> que
+              permita:
+            </p>
+            <li>
+              Iniciar sesión con cuentas de redes sociales (ej. Login with
+              Facebook/Google).
+            </li>
+            <li>
+              Compartir promociones o paquetes turísticos directamente desde el
+              sistema a redes sociales.
+            </li>
+            <li>
+              Conectar el módulo de PQRS+ con canales de mensajería (ej.
+              WhatsApp Business API) para recibir solicitudes o reclamos.
+            </li>
+            <h3>Consecuencias:</h3>
+            <p>
+              ✅ Positivo: Mejora la comunicación con los clientes, aumenta la
+              difusión de promociones y agiliza el servicio al cliente. <br />
+              ❌ Negativo: Dependencia de APIs externas de redes sociales, que
+              pueden cambiar políticas, generar costos adicionales o limitar
+              funcionalidades en el futuro.
+            </p>
+            <br /><br />
+
+            <h2>
+              Decisión Arquitectónica 16: Cumplimiento de regulaciones y
+              protección de datos
+            </h2>
+            <h3>Contexto:</h3>
+            <p>
+              El sistema gestionará información sensible de clientes como
+              nombres, documentos de identidad, datos de contacto, historial de
+              reservas y pagos. En Colombia (y a nivel internacional) existen
+              leyes como <strong> Habeas Data y GDPR</strong> que obligan a
+              proteger la información personal y garantizar los derechos de los
+              usuarios.
+            </p>
+            <h3>Decisión:</h3>
+            <p>
+              Adoptar un
+              <strong
+                >módulo de cumplimiento legal y protección de datos</strong
+              >
+              con las siguientes medidas:
+            </p>
+            <li>
+              <strong>Encriptación de datos sensibles</strong> (claves,
+              información de pagos).
+            </li>
+            <li>
+              <strong>Consentimiento expreso</strong> al registrar clientes
+              sobre uso de datos.
+            </li>
+            <li>
+              <strong>Política de retención y eliminación de datos</strong>
+              cuando ya no sean necesarios.
+            </li>
+            <li>
+              Implementar opciones para que el cliente
+              <strong>consulte, modifique o elimine</strong> su información
+              conforme a la ley
+            </li>
+            <h3>Consecuencias:</h3>
+            <p>
+              ✅ Positivo: Aumenta la confianza de los usuarios, asegura el
+              cumplimiento de regulaciones nacionales e internacionales y evita
+              sanciones legales. <br />
+              ❌ Negativo: Incrementa la complejidad del desarrollo y la gestión
+              documental, además de exigir actualizaciones constantes según
+              cambios en la normativa.
+            </p>
+            <br />
+            <br />
+
+            <h2>
+              Decisión Arquitectónica 17: Documentación y manuales de soporte
+              con alertas administrativas
+            </h2>
+            <h3>Contexto:</h3>
+            <p>
+              El sistema será usado por diferentes perfiles (clientes,
+              recepcionistas, gerentes, administradores) que requieren
+              orientación clara para utilizar correctamente las funciones.
+              Además, el personal de TI y administración necesita recibir
+              alertas sobre el estado del sistema para prevenir fallos.
+            </p>
+            <h3>Decisión:</h3>
+            <p>
+              Implementar un esquema de
+              <strong>documentación integral y alertas de soporte</strong>, que
+              contemple:
+            </p>
+            <li>
+              <strong>Manuales de usuario y guías rápidas</strong> para cada
+              perfil (con ejemplos de uso de reservas, pagos, PQRS+, etc.).
+            </li>
+            <li>
+              <strong>Documentación técnica</strong> para desarrolladores y
+              administradores (diagramas, APIs, configuración del servidor).
+            </li>
+            <li>
+              <strong>Alertas administrativas automáticas</strong> sobre sucesos
+              críticos (ej. espacio de BD cercano al límite, fallos en backup,
+              errores recurrentes en módulos).
+            </li>
+            <li>
+              Un <strong>panel de monitoreo</strong> para centralizar las
+              alertas y registrar acciones correctivas.
+            </li>
+            <h3>Consecuencias:</h3>
+            <p>
+              ✅ Positivo: Facilita el aprendizaje de usuarios, mejora la
+              gestión del sistema y reduce tiempos de respuesta ante fallos.
+              <br />
+              ❌ Negativo: Requiere inversión de tiempo en redacción y
+              mantenimiento de la documentación, además de configurar un sistema
+              de monitoreo.
+            </p>
+            <br />
+            <br />
+
+            <h2>
+              Decisión Arquitectónica 18: Compatibilidad con múltiples
+              dispositivos (PC, tablets y smartphones)
+            </h2>
+            <h3>Contexto:</h3>
+            <p>
+              Los clientes y el personal del hotel acceden al sistema desde
+              diferentes dispositivos:
+              <strong
+                >computadores de escritorio en recepción, tablets para gerencia
+                o supervisión, y teléfonos móviles para clientes.</strong
+              >
+              Es necesario garantizar que la experiencia de usuario sea
+              consistente y funcional en cualquier pantalla.
+            </p>
+            <h3>Decisión:</h3>
+            <p>
+              Diseñar la aplicación con una
+              <strong>interfaz web responsiva</strong> utilizando estándares
+              como <strong>HTML5, CSS3 y JavaScript</strong> con frameworks
+              adaptativos (ej. Bootstrap o similares), asegurando que los
+              módulos de reservas, pagos, PQRS+ e informes funcionen
+              correctamente en <strong>PC, tablets y smartphones.</strong>
+            </p>
+            <h3>Consecuencias:</h3>
+            <p>
+              ✅ Positivo: Permite a los clientes y empleados acceder al sistema
+              desde cualquier dispositivo sin instalar aplicaciones adicionales.
+              <br />
+              ❌ Negativo: Aumenta el esfuerzo en diseño, pruebas de usabilidad
+              y compatibilidad entre navegadores y resoluciones de pantalla.
+            </p>
+          </article>
+
+          <article id="casode-usos" class="mb-5">
+            <h2>Diagrama de casos de uso</h2>
+
+            <img src="../img/DCasoU.png" alt="Diagrama de casos de uso" class="img-fluid mt-3 shadow-sm rounded">
+            <hr class="my-4">
+
+            <h3>Diagrama Gestión Reserva</h3>
+            <img src="../img/GReserva.png" alt="Diagrama de gestión de reservas" class="img-fluid mt-3 shadow-sm rounded">
+            <hr class="my-4">
+
+            <h3>Diagrama Gestión Paquetes</h3>
+            <img src="../img/DGestioPaquete.png" alt="Diagrama de gestión de paquetes" class="img-fluid mt-3 shadow-sm rounded">
+            <hr class="my-4">
+
+            <h3>Diagrama Gestión Habitaciones</h3>
+            <img src="../img/DGestionHabitaciones.png" alt="Diagrama de gestión de habitaciones" class="img-fluid mt-3 shadow-sm rounded">
+            <hr class="my-4">
+
+            <h3>Diagrama Gestión Informes</h3>
+            <img src="../img/DGestionInformes.png" alt="Diagrama de gestión de informes" class="img-fluid mt-3 shadow-sm rounded">
+            <hr class="my-4">
+
+            <h3>Diagrama Gestión Cliente</h3>
+            <img src="../img/GCliente.png" alt="Diagrama de gestión de clientes" class="img-fluid mt-3 shadow-sm rounded">
+            <hr class="my-4">
+
+            <h3>Diagrama Gestión PQRS+</h3>
+            <img src="../img/DGestionPqrs.png" alt="Diagrama de gestión de PQRS+" class="img-fluid mt-3 shadow-sm rounded">
+            <hr class="my-4">
+
+            <h3>Diagrama Gestión Tipo PQRS+</h3>
+            <img src="../img/DGestionTipoPqrs.png" alt="Diagrama de gestión de tipo PQRS+" class="img-fluid mt-3 shadow-sm rounded">
+            <hr class="my-4">
+
+            <h3>Diagrama Gestión Administrador</h3>
+            <img src="../img/DAdministrador.png" alt="Diagrama de gestión de administrador" class="img-fluid mt-3 shadow-sm rounded">
+            <hr class="my-4">
+
+            <h3>Diagrama Gestión Administrador Usuario</h3>
+            <img src="../img/DAdministradorUsuario.png" alt="Diagrama de gestión de administrador usuario" class="img-fluid mt-3 shadow-sm rounded">
+          </article>
 
 
-      </section>
-    </div>
-  </main>
-  <!-- Footer -->
-  <div id="footer-placeholder"></div>
+          <article id="clases" class="mb-5">
+            <h2>Diagrama de clases</h2>
+            <br>
+            <img src="../img/DDD.png" alt="Diagrama" class="img-fluid mt-3 shadow-sm rounded">
+          </article>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../js/main.js"></script>
-</body>
+          <article id="UML" class="mb-5">
+            <h2>Diagrama UML de la Arquitectura</h2>
+            <img src="../img/DClases.png" alt="Diagrama de clases" class="img-fluid mt-3 shadow-sm rounded">
+          </article>
+      </div>
+    </main>
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
 </html>
