@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Informe final</title>
+    <link rel="icon" type="image/jpg" href="/img/logo.jpg" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Tu CSS personalizado -->
+    <link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <main class="container mt-5">
+
+        <div class="mb-4 p-3 shadow-sm border rounded title-container">
+            <h2 class="title ">Informe final de arquitectura - Sistema Hotel Cacique</h2>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar -->
+            <aside class="col-md-3 mb-4">
+                <div class="list-group shadow-sm">
+
+                    <a href="#resumen" class="list-group-item list-group-item-action">
+                        <i class="bi bi-file-earmark-text me-2"></i>Resumen ejecutivo
+                    </a>
+
+                    <a href="#arquitectura" class="list-group-item list-group-item-action">
+                        <i class="bi bi-diagram-3 me-2"></i>Arquitectura adoptada
+                    </a>
+
+                    <a href="#disenio" class="list-group-item list-group-item-action">
+                        <i class="bi bi-tools me-2"></i>Diseño e implementación
+                    </a>
+
+                    <a href="#evidencia" class="list-group-item list-group-item-action">
+                        <i class="bi bi-collection me-2"></i>Evidencias por actividad
+                    </a>
+
+                    <a href="#adrs" class="list-group-item list-group-item-action">
+                        <i class="bi bi-journal-code me-2"></i>ADRs incluidos
+                    </a>
+
+                    <a href="#atributos" class="list-group-item list-group-item-action">
+                        <i class="bi bi-shield-check me-2"></i>Atributos de calidad (NFRs)
+                    </a>
+
+                    <a href="#conclusiones" class="list-group-item list-group-item-action">
+                        <i class="bi bi-lightbulb me-2"></i>Conclusiones
+                    </a>
+
+                </div>
+            </aside>
+
+
+            <!-- Contenido -->
+            <section class="col-md-9">
+
+                <article id="resumen" class="mb-5">
+                    <h2 class="title">1. Resumen Ejecutivo</h2>
+
+                    <p>
+                        El <strong>Sistema de Gestión Hotelera del Hotel Cacique Bolívar</strong> es una plataforma
+                        diseñada
+                        para modernizar y optimizar los procesos internos mediante una arquitectura
+                        <strong>Cliente–Servidor</strong> organizada en <strong>capas</strong> y comunicada a través de
+                        <strong>APIs REST</strong>. El propósito principal es reemplazar los procesos manuales por una
+                        solución digital eficiente, escalable y preparada para integraciones futuras.
+                    </p>
+
+                    <p>
+                        El sistema unifica la información de <strong>clientes, reservas, habitaciones, paquetes
+                            turísticos,
+                            pagos y PQRS+</strong>, garantizando procesos más ágiles y una experiencia digital coherente
+                        para
+                        los colaboradores y huéspedes del hotel.
+                    </p>
+
+                    <h3>Estilos arquitectónicos implementados</h3>
+                    <ul>
+                        <li><strong>Arquitectura por capas</strong>: Presentación, Aplicación, Dominio e
+                            Infraestructura.</li>
+                        <li><strong>Cliente–Servidor</strong>: interfaz web conectada con backend centralizado.</li>
+                        <li><strong>APIs REST</strong>: comunicación ligera, estándar y escalable.</li>
+                        <li><strong>Orientada a eventos (preparada)</strong>: apta para futura migración a
+                            microservicios.</li>
+                    </ul>
+
+                    <h3>Módulos principales</h3>
+                    <ul>
+                        <li>Gestión de clientes</li>
+                        <li>Gestión de reservas</li>
+                        <li>Gestión de habitaciones</li>
+                        <li>Gestión de paquetes turísticos</li>
+                        <li>Gestión de pagos</li>
+                        <li>Gestión de PQRS+</li>
+                        <li>Consultas e informes</li>
+                    </ul>
+
+                    <h3>Evidencias disponibles</h3>
+                    <ul>
+                        <li>Casos de uso y escenarios</li>
+                        <li>Diagramas UML y C4</li>
+                        <li>Modelo y diccionario de datos</li>
+                        <li>Requisitos funcionales y no funcionales</li>
+                        <li>Diseño de interfaces de usuario</li>
+                    </ul>
+
+                    <h3>Resultado global del sistema</h3>
+                    <p>La solución proporciona:</p>
+                    <ul>
+                        <li>Mayor eficiencia operativa</li>
+                        <li>Reducción de errores y reprocesos</li>
+                        <li>Mejor tiempo de respuesta al cliente</li>
+                        <li>Experiencia digital moderna</li>
+                        <li>Base sólida para futuras integraciones y microservicios</li>
+                    </ul>
+                </article>
+
+                <article id="arquitectura" class="mb-5">
+                    <h2 class="title">2. Arquitectura adoptada y justificación</h2>
+
+                    <p>
+                        La arquitectura del <strong>Sistema de Gestión Hotelera del Hotel Cacique Bolívar</strong> fue
+                        construida para garantizar
+                        escalabilidad, mantenibilidad y separación clara de responsabilidades. Para ello se adoptó una
+                        <strong>arquitectura por capas</strong>, un modelo <strong>Cliente–Servidor</strong> y
+                        comunicación mediante
+                        <strong>APIs REST</strong>.
+                    </p>
+
+                    <!-- ===== 2.1 Arquitectura por capas ===== -->
+                    <h3>2.1 Arquitectura por capas</h3>
+                    <p>
+                        El sistema está estructurado en capas independientes para mejorar el mantenimiento, la claridad
+                        del código
+                        y la evolución del software.
+                    </p>
+
+                    <h4>Capa de Presentación</h4>
+                    <p>
+                        Contiene las vistas y formularios utilizados por clientes, recepcionistas y administradores. Su
+                        objetivo
+                        es ofrecer interfaces claras, simples y eficientes.
+                    </p>
+
+                    <h4>Capa de Aplicación</h4>
+                    <p>
+                        Gestiona procesos, validaciones y flujos internos. Aquí se coordina la disponibilidad de
+                        habitaciones,
+                        creación de reservas y procesamiento general de solicitudes.
+                    </p>
+
+                    <h4>Capa de Dominio</h4>
+                    <p>
+                        Encapsula las reglas fundamentales del negocio hotelero: ciclo de vida de reservas, estados de
+                        habitaciones,
+                        reglas de pago y gestión de PQRS+.
+                    </p>
+
+                    <h4>Capa de Infraestructura</h4>
+                    <p>
+                        Gestiona el acceso a datos mediante repositorios JPA, consultas y conexiones SQL. Su función es
+                        asegurar
+                        integridad y persistencia confiable.
+                    </p>
+
+                    <h3>Justificación del enfoque por capas</h3>
+                    <ul>
+                        <li>Permite agregar nuevas funciones sin afectar módulos existentes.</li>
+                        <li>Facilita pruebas, mantenimiento y modularidad.</li>
+                        <li>Reduce el acoplamiento y mejora la estructura interna del sistema.</li>
+                    </ul>
+
+                    <!-- ===== 2.2 Cliente–Servidor ===== -->
+                    <h3>2.2 Cliente–Servidor y uso de APIs REST</h3>
+                    <p>
+                        El modelo <strong>Cliente–Servidor</strong> permite que múltiples usuarios operen desde
+                        distintos dispositivos
+                        mientras el servidor maneja la lógica central y la persistencia.
+                    </p>
+
+                    <h4>Ventajas de usar APIs REST</h4>
+                    <ul>
+                        <li>Compatibilidad amplia y estándar industrial.</li>
+                        <li>Rendimiento rápido y comunicación ligera.</li>
+                        <li>Posibilidad de reutilizar backend con apps móviles o kioscos.</li>
+                    </ul>
+
+                    <!-- ===== 2.3 Arquitectura orientada a eventos ===== -->
+                    <h3>2.3 Arquitectura orientada a eventos (preparada)</h3>
+                    <p>
+                        El sistema está diseñado para soportar eventos en futuras versiones, permitiendo una transición
+                        flexible
+                        a microservicios.
+                    </p>
+
+                    <h4>Eventos futuros posibles</h4>
+                    <ul>
+                        <li><strong>ReservaCreada</strong> → Actualizar disponibilidad</li>
+                        <li><strong>PagoRealizado</strong> → Confirmar reservas</li>
+                        <li><strong>PQRSRegistrada</strong> → Notificar a gerencia</li>
+                    </ul>
+
+                    <!-- ===== 2.4 Microservicios ===== -->
+                    <h3>2.4 Preparación para microservicios y bounded contexts</h3>
+                    <p>
+                        El sistema está dividido conceptualmente en <strong>bounded contexts</strong>, facilitando una
+                        futura migración
+                        hacia microservicios sin modificar la estructura central.
+                    </p>
+
+                    <ul>
+                        <li>Clientes</li>
+                        <li>Reservas</li>
+                        <li>Habitaciones</li>
+                        <li>Pagos</li>
+                        <li>Paquetes turísticos</li>
+                        <li>PQRS+</li>
+                        <li>Administración e Informes</li>
+                    </ul>
+
+                </article>
+
+                <article id="disenio" class="mb-5">
+                    <h2>Diseño e implementación (resumen)</h2>
+
+                    <!-- Arquitectura por capas -->
+                    <h3>Arquitectura por capas</h3>
+                    <p>
+                        El sistema está estructurado bajo una arquitectura por capas, cada una con responsabilidades
+                        claramente definidas:
+                    </p>
+                    <ul>
+                        <li><strong>Presentación:</strong> controladores REST y vistas HTML integradas con Thymeleaf.
+                        </li>
+                        <li><strong>Aplicación:</strong> servicios, validaciones, DTOs, eventos y handlers.</li>
+                        <li><strong>Dominio:</strong> entidades del negocio, lógica de dominio, factory y observadores.
+                        </li>
+                        <li><strong>Infraestructura:</strong> repositorios propios, notificaciones y componentes
+                            técnicos.</li>
+                        <li><strong>Persistencia:</strong> DAOs internos (no se utiliza Spring Data JPA).</li>
+                    </ul>
+
+                    <p><strong>Estructura de carpetas en el repositorio:</strong></p>
+                    <ul>
+                        <li>/HotelCaciqueAS/HotelCaciqueAS/src/main/java/</li>
+                        <li>/HotelCaciqueAS/HotelCaciqueAS/src/main/resources/</li>
+                        <li>/HotelCaciqueAS/HotelCaciqueAS/target/classes/templates/</li>
+                        <li>/HotelCaciqueAS/HotelCaciqueAS/pom.xml</li>
+                    </ul>
+
+                    <!-- Patrones de diseño aplicados -->
+                    <h3>Patrones de diseño aplicados</h3>
+                    <ul>
+                        <li><strong>MVC (Modelo–Vista–Controlador):</strong> aplicado con controladores REST, entidades
+                            y plantillas HTML.</li>
+                        <li><strong>Repository:</strong> implementado mediante DAOs propios ubicados en la capa de
+                            infraestructura.</li>
+                        <li><strong>Observer:</strong> aplicado para manejar notificaciones internas mediante
+                            observadores y sujetos.</li>
+                    </ul>
+
+                    <!-- Comunicación por eventos -->
+                    <h3>Comunicación por eventos</h3>
+                    <p>
+                        El sistema implementa un modelo básico de eventos internos para ejecutar acciones automáticas
+                        cuando se registra una reserva, como enviar notificaciones.
+                    </p>
+
+                    <ul>
+                        <li>
+                            <strong>ReservaCreadaEvent:</strong> evento principal del sistema.
+                            <br>Productor: <em>ReservaService</em>
+                            <br>Consumidor: <em>NotificadorEmailHandler</em>
+                        </li>
+                    </ul>
+
+                    <p>
+                        <strong>Ruta de eventos:</strong><br>
+                        /HotelCaciqueAS/HotelCaciqueAS/src/main/java/com/hotelcacique/reservas/capa_aplicacion/events/
+                    </p>
+
+                    <!-- APIs y contratos -->
+                    <h3>APIs y contratos</h3>
+                    <p>No se utiliza Swagger en este proyecto.</p>
+
+                    <p><strong>Endpoints principales:</strong></p>
+                    <ul>
+                        <li>POST /reservas — crear reserva.</li>
+                        <li>GET /reservas — listar reservas.</li>
+                        <li>GET /reservas/{id} — consultar reserva por ID.</li>
+                        <li>DELETE /reservas/{id} — eliminar reserva.</li>
+                    </ul>
+
+                    <p>
+                        <strong>Manejo de errores:</strong> implementado mediante respuestas controladas en los
+                        controladores REST y validaciones internas.
+                    </p>
+
+                    <!-- Modularización -->
+                    <h3>Modularización (bounded contexts)</h3>
+                    <p>
+                        El sistema está compuesto por un único contexto funcional:
+                    </p>
+                    <ul>
+                        <li><strong>Contexto de Reservas:</strong> incluye habitaciones, validaciones, creación de
+                            reservas, eventos internos y notificaciones.</li>
+                    </ul>
+
+                    <p><strong>APIs internas y configuración:</strong></p>
+                    <ul>
+                        <li>/HotelCaciqueAS/HotelCaciqueAS/src/main/resources/application.properties</li>
+                    </ul>
+
+                </article>
+
+
+                <article id="evidencia" class="mb-5">
+                    <h2>Entregables del proyecto</h2>
+                    <p>
+                        A continuación se presenta el resumen de entregables solicitados, junto con la evidencia
+                        asociada y su ubicación dentro del repositorio o archivos del proyecto.
+                    </p>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered align-middle shadow-sm">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Actividad</th>
+                                    <th>Qué se entrega como evidencia</th>
+                                    <th>Ubicación / Enlace</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <!-- ENTREGABLE 1 -->
+                                <tr>
+                                    <td><strong>Entregable 1: Arquitectura por Capas</strong></td>
+                                    <td>
+                                        <ul>
+                                            <li>Estructura real del proyecto por capas:</li>
+                                            <ul>
+                                                <li>Presentación (controllers + plantillas)</li>
+                                                <li>Aplicación (servicios, DTOs, eventos)</li>
+                                                <li>Dominio (entidades, observers, factory)</li>
+                                                <li>Infraestructura (notificaciones, repositorios propios)</li>
+                                                <li>Persistencia (DAOs propios)</li>
+                                            </ul>
+
+                                            <li>Diagramas C4 (adjuntos por el estudiante)</li>
+                                            <li>Conexión a BD (application.properties)</li>
+                                            <li>Pruebas unitarias (si aplica)</li>
+                                        </ul>
+                                    </td>
+
+                                    <td>
+                                        <ul class="mt-2">
+                                            <li>/HotelCaciqueAS/HotelCaciqueAS/src/main/java/</li>
+                                            <li>/HotelCaciqueAS/HotelCaciqueAS/src/main/resources/</li>
+                                            <li>/HotelCaciqueAS/HotelCaciqueAS/target/classes/templates/</li>
+                                            <li>/HotelCaciqueAS/HotelCaciqueAS/pom.xml</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+
+                                <!-- ENTREGABLE 2 -->
+                                <tr>
+                                    <td><strong>Entregable 2: Patrones de Diseño</strong></td>
+                                    <td>
+                                        <ul>
+                                            <li>Documento de patrones (MVC, Repository, Observer)</li>
+                                            <li>Clases donde se aplican (controladores, servicios, DAOs, observers)</li>
+                                            <li>Ejemplos o capturas del funcionamiento</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>/HotelCaciqueAS/HotelCaciqueAS/src/main/java/com/hotelcacique/reservas/capa_presentacion/controller/
+                                            </li>
+                                            <li>/HotelCaciqueAS/HotelCaciqueAS/src/main/java/com/hotelcacique/reservas/capa_aplicacion/service/
+                                            </li>
+                                            <li>/HotelCaciqueAS/HotelCaciqueAS/src/main/java/com/hotelcacique/reservas/capa_infraestructura/Repository/
+                                            </li>
+                                            <li>/HotelCaciqueAS/HotelCaciqueAS/src/main/java/com/hotelcacique/reservas/capa_dominio/observers/
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+
+                                <!-- ENTREGABLE 3 -->
+                                <tr>
+                                    <td><strong>Entregable 3: Comunicación por Eventos</strong></td>
+                                    <td>
+                                        <ul>
+                                            <li>Catálogo de eventos usados en el sistema</li>
+                                            <li>Código de handlers y subject–observer</li>
+                                            <li>Eventos generados en ReservaService</li>
+                                            <li>Capturas o logs del flujo de eventos</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>/HotelCaciqueAS/HotelCaciqueAS/src/main/java/com/hotelcacique/reservas/capa_aplicacion/events/
+                                            </li>
+                                            <li>/HotelCaciqueAS/HotelCaciqueAS/src/main/java/com/hotelcacique/reservas/capa_aplicacion/events/Handlers/
+                                            </li>
+                                            <li>/HotelCaciqueAS/HotelCaciqueAS/src/main/java/com/hotelcacique/reservas/capa_dominio/events/
+                                            </li>
+                                            <li>/HotelCaciqueAS/HotelCaciqueAS/src/main/java/com/hotelcacique/reservas/capa_infraestructura/Notificaciones/
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+
+                                <!-- ENTREGABLE 4 -->
+                                <tr>
+                                    <td><strong>Entregable 4: APIs y Contratos</strong></td>
+                                    <td>
+                                        <ul>
+                                            <li>Documentación de endpoints (README-APIs.md)</li>
+                                            <li>Controlador REST de reservas</li>
+                                            <li>Manejo de errores (responses propias)</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>/HotelCaciqueAS/HotelCaciqueAS/README-APIs.md</li>
+                                            <li>/HotelCaciqueAS/HotelCaciqueAS/src/main/java/com/hotelcacique/reservas/capa_presentacion/controller/ReservaRestController.java
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <article id="adrs" class="mb-5">
+                    <h2>ADRs incluidos</h2>
+                    <p>
+                        A continuación se describen los <strong>Architecture Decision Records (ADRs)</strong>
+                        más relevantes que se tomaron durante el desarrollo del Sistema Hotel Cacique Bolívar.
+                        Cada ADR documenta el contexto, la decisión tomada y sus consecuencias técnicas.
+                    </p>
+
+                    <h3>ADR 1 – Selección de Spring Boot como framework principal</h3>
+                    <p><strong>Contexto:</strong> Se requería un framework estable, escalable y con integración nativa a
+                        Java.</p>
+                    <p><strong>Decisión:</strong> Adoptar <strong>Spring Boot</strong> para gestionar controladores,
+                        servicios, repositorios y seguridad.</p>
+                    <p><strong>Consecuencias:</strong>
+                        Simplifica la configuración, mejora la productividad y ofrece soporte a largo plazo;
+                        sin embargo, aumenta el peso del proyecto y requiere mayor conocimiento de Spring.
+                    </p>
+
+                    <h3>ADR 2 – Uso del patrón MVC como estilo arquitectónico</h3>
+                    <p><strong>Contexto:</strong> Se necesitaba separar la lógica, las vistas y el flujo de datos para
+                        asegurar mantenibilidad.</p>
+                    <p><strong>Decisión:</strong> Implementar el sistema bajo el patrón <strong>MVC</strong> con
+                        arquitectura por capas.</p>
+                    <p><strong>Consecuencias:</strong>
+                        Permite evolución modular y facilita pruebas; aumenta la complejidad al inicio por la separación
+                        estricta.
+                    </p>
+
+                    <h3>ADR 3 – Base de datos relacional MySQL</h3>
+                    <p><strong>Contexto:</strong> El sistema exige integridad, consistencia y transacciones seguras.</p>
+                    <p><strong>Decisión:</strong> Seleccionar <strong>MySQL</strong> como motor de base de datos
+                        principal.</p>
+                    <p><strong>Consecuencias:</strong>
+                        Garantiza integridad y amplia documentación, pero puede limitar la escalabilidad horizontal en
+                        escenarios futuros.
+                    </p>
+
+                    <h3>ADR 4 – Relación uno a uno entre Pagos y Reservas</h3>
+                    <p><strong>Contexto:</strong> Se buscaba evitar pagos duplicados o inconsistentes en una misma
+                        reserva.</p>
+                    <p><strong>Decisión:</strong> Implementar una relación estricta <strong>1:1</strong> entre pago y
+                        reserva.</p>
+                    <p><strong>Consecuencias:</strong>
+                        Mejora la trazabilidad del proceso de pago, pero obliga a validaciones adicionales al eliminar o
+                        modificar una reserva.
+                    </p>
+
+                    <h3>ADR 5 – Implementación del módulo PQRS+ basado en roles</h3>
+                    <p><strong>Contexto:</strong> Los roles del sistema (cliente, recepcionista, administrador) tenían
+                        diferentes permisos.</p>
+                    <p><strong>Decisión:</strong> El cliente puede CRUD completo; la recepcionista solo puede consultar.
+                    </p>
+                    <p><strong>Consecuencias:</strong>
+                        Aumenta la seguridad y evita modificaciones indebidas; implica lógica de permisos más compleja.
+                    </p>
+
+                    <h3>ADR 6 – Integración de validaciones de archivos según tipo</h3>
+                    <p><strong>Contexto:</strong> Se manejaban recursos de tipo imagen y documentos PDF.</p>
+                    <p><strong>Decisión:</strong> Implementar validación dual: imágenes (png, jpg, webp) o PDF según
+                        elección del usuario.</p>
+                    <p><strong>Consecuencias:</strong>
+                        Mayor seguridad y control; requiere manejo de errores más detallado en backend.
+                    </p>
+
+                    <h3>ADR 7 – Manejo modular de habitaciones y paquetes</h3>
+                    <p><strong>Contexto:</strong> Los paquetes pueden incluir habitaciones por defecto y habitaciones
+                        adicionales.</p>
+                    <p><strong>Decisión:</strong> Separar lógica en las tablas <strong>Paquete</strong>,
+                        <strong>Paquete_Habitacion</strong> y <strong>Extras_Paquete</strong>.
+                    </p>
+                    <p><strong>Consecuencias:</strong>
+                        Flexibilidad total en la creación de paquetes; complejidad adicional en consultas SQL.
+                    </p>
+
+                    <h3>ADR 8 – Validación de disponibilidad de habitaciones desde la capa de servicio</h3>
+                    <p><strong>Contexto:</strong> Se necesitaba evitar sobre-reservas o conflictos de fechas.</p>
+                    <p><strong>Decisión:</strong> Centralizar la validación de disponibilidad en la capa de servicios.
+                    </p>
+                    <p><strong>Consecuencias:</strong>
+                        Garantiza consistencia global; incrementa carga lógica en los servicios.
+                    </p>
+
+                    <h3>ADR 9 – Uso de Bootstrap 5 para responsividad</h3>
+                    <p><strong>Contexto:</strong> El sistema debe funcionar en PC, tablets y móviles.</p>
+                    <p><strong>Decisión:</strong> Implementar la interfaz con <strong>Bootstrap 5</strong>.</p>
+                    <p><strong>Consecuencias:</strong>
+                        Alta compatibilidad y diseño consistente; limita ciertos estilos sin personalización adicional.
+                    </p>
+
+                    <h3>ADR 10 – Implementación de módulos de informes con filtros y exportación</h3>
+                    <p><strong>Contexto:</strong> Usuarios administrativos necesitan analizar reservas, pagos y
+                        clientes.</p>
+                    <p><strong>Decisión:</strong> Crear un módulo de <strong>informes con filtros</strong> y posibilidad
+                        de exportar a Excel o PDF.</p>
+                    <p><strong>Consecuencias:</strong>
+                        Mejora la toma de decisiones; requiere mayor procesamiento en consultas y generación de
+                        archivos.
+                    </p>
+                </article>
+
+                <article id="atributos" class="mb-5">
+                    <h2>Atributos de calidad (NFRs) y tácticas</h2>
+                    <p>El sistema del <strong>Hotel Cacique Bolívar</strong> fue diseñado considerando requisitos no
+                        funcionales que garantizan estabilidad, seguridad, mantenimiento y crecimiento sostenido. A
+                        continuación, se presentan los atributos de calidad clave y las tácticas aplicadas.</p>
+
+                    <ul class="list-group mt-3">
+
+                        <!-- Mantenibilidad -->
+                        <li class="list-group-item">
+                            <strong>Mantenibilidad</strong><br>
+                            Tácticas aplicadas:<br>
+                            • Arquitectura en capas (Presentación, Aplicación, Dominio, Persistencia).<br>
+                            • Inversión de dependencias (DI) con Spring Boot para desacoplar módulos.<br>
+                            • Uso de DTOs para separar la vista del modelo interno.<br>
+                            • Controladores, servicios y repositorios claramente separados según responsabilidad.<br>
+                            • Estructura modular por dominios (reservas, clientes, PQRS+, pagos, habitaciones).
+                        </li>
+
+                        <!-- Escalabilidad -->
+                        <li class="list-group-item">
+                            <strong>Escalabilidad</strong><br>
+                            Tácticas aplicadas:<br>
+                            • Servicios sin estado (stateless) en la capa de aplicación.<br>
+                            • Uso de eventos internos con Observer para desacoplar operaciones.<br>
+                            • Posibilidad futura de escalado horizontal en contenedores.<br>
+                            • Base de datos optimizada con índices para consultas masivas.
+                        </li>
+
+                        <!-- Disponibilidad -->
+                        <li class="list-group-item">
+                            <strong>Disponibilidad</strong><br>
+                            Tácticas aplicadas:<br>
+                            • Manejo centralizado de errores en controladores.<br>
+                            • Validación de entradas y protección ante datos corruptos.<br>
+                            • Posibilidad de health checks mediante Actuator (integrable con Spring Boot).<br>
+                            • Backups periódicos de la base de datos (definidos en ADR 8).
+                        </li>
+
+                        <!-- Desempeño -->
+                        <li class="list-group-item">
+                            <strong>Desempeño</strong><br>
+                            Tácticas aplicadas:<br>
+                            • Paginación y filtrado en consultas de reservas, clientes y PQRS+.<br>
+                            • Índices en campos críticos (documento, códigos de reserva, habitaciones).<br>
+                            • Optimización de consultas repetitivas.<br>
+                            • Uso futuro de caché para disponibilidad de habitaciones (propuesto en ADR 14).
+                        </li>
+
+                        <!-- Seguridad -->
+                        <li class="list-group-item">
+                            <strong>Seguridad</strong><br>
+                            Tácticas aplicadas:<br>
+                            • Roles y permisos definidos (administrador, recepcionista, cliente, gerencia).<br>
+                            • Validaciones en formularios y cargas de documentos.<br>
+                            • HTTPS/TLS para proteger la comunicación (ADR 006).<br>
+                            • Gestión segura de credenciales en el servidor.<br>
+                            • Restricción de acceso a datos sensibles (pagos, PQRS+).
+                        </li>
+
+                        <!-- Observabilidad -->
+                        <li class="list-group-item">
+                            <strong>Observabilidad</strong><br>
+                            Tácticas aplicadas:<br>
+                            • Logs estructurados en operaciones críticas (reservas, pagos, PQRS+).<br>
+                            • Registros de errores explícitos para facilitar diagnóstico.<br>
+                            • Métricas internas y posibilidad de integración con Actuator.<br>
+                            • Trazabilidad mediante eventos internos (Observer).
+                        </li>
+                    </ul>
+
+                </article>
+
+                <article id="conclusiones" class="mb-5">
+                    <h2>Conclusiones</h2>
+
+                    <h3>Estilos arquitectónicos implementados</h3>
+                    <p>
+                        El sistema fue construido sobre una <strong>arquitectura en capas</strong> combinada con un
+                        modelo
+                        <strong>MVC</strong> y soporte para <strong>eventos internos (Observer)</strong>.
+                        Esta elección permitió separar de forma clara la presentación, la lógica de aplicación,
+                        el dominio y la persistencia, facilitando la evolución del software y reduciendo el
+                        acoplamiento.
+                    </p>
+
+                    <h3>Beneficios obtenidos</h3>
+                    <ul>
+                        <li>
+                            <strong>Mantenibilidad:</strong> gracias a capas bien definidas, uso de servicios, DTOs,
+                            repositorios y una estructura modular fácil de extender.
+                        </li>
+                        <li>
+                            <strong>Escalabilidad:</strong> el sistema está preparado para crecer mediante eventos,
+                            integración
+                            futura con microservicios de IA, y separación clara de responsabilidades.
+                        </li>
+                        <li>
+                            <strong>Desacoplamiento:</strong> el patrón MVC, el uso de interfaces y la organización por
+                            dominios
+                            reducen dependencias directas y permiten intercambiar componentes sin afectar el sistema
+                            completo.
+                        </li>
+                        <li>
+                            <strong>Confiabilidad:</strong> la integración con MySQL, validaciones internas, logs y
+                            manejo estructurado
+                            de errores garantizan una operación estable.
+                        </li>
+                    </ul>
+
+                    <h3>Próximos pasos recomendados</h3>
+                    <ul>
+                        <li>
+                            Integrar un <strong>microservicio de analítica e IA</strong> para predicción de ocupación y
+                            recomendaciones inteligentes de paquetes.
+                        </li>
+                        <li>
+                            Implementar un <strong>sistema avanzado de seguridad</strong> con autenticación JWT/OAuth2 y
+                            cifrado
+                            integral para la protección de datos personales y financieros.
+                        </li>
+                    </ul>
+                </article>
+
+            </section>
+
+
+    </main>
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
