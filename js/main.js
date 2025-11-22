@@ -28,30 +28,48 @@
 })();
 
 (function highlightActiveSection() {
-  // === Sidebar + Sección activa ===
 
   document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll("article[id]");
-    const navLinks = document.querySelectorAll("aside .list-group-item");
 
-    // Usamos IntersectionObserver para detectar la visibilidad de cada sección
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Quitar activo de todos
-          navLinks.forEach(link => link.classList.remove("active"));
-          sections.forEach(sec => sec.classList.remove("section-active"));
+    const sections = Array.from(document.querySelectorAll("article[id]"));
+    const navLinks = Array.from(document.querySelectorAll("aside .list-group-item"));
 
-          // Activar el enlace correspondiente
-          const link = document.querySelector(`aside .list-group-item[href="#${entry.target.id}"]`);
-          if (link) link.classList.add("active");
+    function updateActiveSection() {
+      let closestSection = null;
+      let minDistance = Number.POSITIVE_INFINITY;
 
-          // Activar el estilo en la sección
-          entry.target.classList.add("section-active");
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const distance = Math.abs(rect.top - 120); 
+        // 120 px = margen para navbar fija y un poco de espacio visual
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestSection = section;
         }
       });
-    }, { threshold: 0.6 }); // 60% visible para marcar como activa
 
-    sections.forEach(section => observer.observe(section));
+      if (closestSection) {
+        const id = closestSection.getAttribute("id");
+
+        // Quitar active de todos
+        navLinks.forEach(link => link.classList.remove("active"));
+        sections.forEach(sec => sec.classList.remove("section-active"));
+
+        // Activar el link correspondiente
+        const activeLink = document.querySelector(`aside .list-group-item[href="#${id}"]`);
+        if (activeLink) activeLink.classList.add("active");
+
+        // Activar la sección
+        closestSection.classList.add("section-active");
+      }
+    }
+
+    // Ejecutar al cargar
+    updateActiveSection();
+
+    // Ejecutar cada vez que se hace scroll
+    window.addEventListener("scroll", updateActiveSection);
   });
+
 })();

@@ -19,11 +19,8 @@ main {
 /* === HERO === */
 .hero {
   height: 50vh;
-  background: 
-    linear-gradient(
-      rgba(40, 40, 40, 0.5),   /* gris oscuro semi */
-      rgba(40, 40, 40, 0.5)
-    ),
+  background:
+    linear-gradient(rgba(40, 40, 40, 0.5), rgba(40, 40, 40, 0.5)),
     url('../img/hero-hotel.jpg') center/cover no-repeat;
   display: flex;
   justify-content: center;
@@ -31,7 +28,6 @@ main {
   text-align: center;
   color: white;
 }
-
 
 .hero-title {
   font-size: 3rem;
@@ -63,7 +59,6 @@ main {
 /* === NAVBAR MODERNA === */
 .custom-navbar {
   background: rgba(40, 40, 40, 0.95);
-  /* gris oscuro transparente */
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 0.7rem 1rem;
@@ -82,24 +77,20 @@ main {
   font-size: 1.2rem;
   font-weight: 700;
   color: #fff;
-  /* cambio a blanco para contraste con fondo oscuro */
 }
 
 .custom-navbar .brand-text .highlight {
   color: #b44554;
 }
 
-/* Enlaces del menú */
 .custom-navbar .nav-link {
   color: #fff !important;
-  /* blanco para enlaces normales */
   font-weight: 500;
   margin-left: 0.5rem;
   position: relative;
   transition: all 0.3s ease;
 }
 
-/* Subrayado animado en hover */
 .custom-navbar .nav-link::after {
   content: "";
   position: absolute;
@@ -115,17 +106,14 @@ main {
   width: 100%;
 }
 
-/* Enlace activo: subrayado permanente */
 .custom-navbar .nav-link.active {
   color: #b44554 !important;
 }
 
 .custom-navbar .nav-link.active::after {
   width: 100%;
-  /* subrayado completo para el enlace activo */
 }
 
-/* Botón CTA */
 .btn-cta {
   background: #b44554;
   color: #fff;
@@ -151,12 +139,16 @@ main {
   letter-spacing: 1.5px;
 }
 
-/* === SIDEBAR === */
+/* === SIDEBAR — AJUSTADO === */
 aside {
   position: sticky;
-  top: 1rem; /* distancia desde arriba */
-  height: calc(100vh - 2rem); /* ocupa casi toda la altura de la ventana */
-  overflow-y: auto; /* scroll interno si se pasa de alto */
+  top: 1rem;
+  height: calc(100vh - 2rem);
+  overflow-y: auto;
+
+  /* 👇 Ajustes nuevos */
+  margin-left: -25px !important;
+  /* sidebar más pegado a la izquierda */
 }
 
 aside .list-group {
@@ -170,6 +162,11 @@ aside .list-group-item {
   font-weight: 500;
   color: #333;
   transition: all 0.2s ease;
+
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.4;
+  padding: 10px 14px;
 }
 
 aside .list-group-item:hover {
@@ -183,19 +180,24 @@ aside .list-group-item.active {
   font-weight: bold;
 }
 
-/* Reset: todos los íconos transparentes */
 aside .list-group-item i {
   background-color: transparent;
   padding: 4px;
-  border-radius: 6px; /* opcional, para que quede redondeado */
+  border-radius: 6px;
   transition: background-color 0.3s ease;
 }
 
 aside .list-group-item.active i {
-  background-color: #b44554; /* vino */
-  color: #fff; /* ícono en blanco */
+  background-color: #b44554;
+  color: #fff;
 }
+
 /* === SECCIONES === */
+section.col-md-10 {
+  padding-left: 25px !important;
+  /* 👈 contenido más ancho */
+}
+
 section article {
   background: #fff;
   padding: 2rem;
@@ -220,27 +222,22 @@ section article h2 {
 }
 
 section article h3 {
-  color: #333; /* gris oscuro para bajar intensidad */
-  font-weight: 600; /* menos fuerte que bold */
-  border-left: 4px solid #b44554; /* barra lateral en vino */
+  color: #333;
+  font-weight: 600;
+  border-left: 4px solid #b44554;
   padding-left: 10px;
   margin-bottom: 0.75rem;
   margin-top: 1.5rem;
 }
 
-
 /* === FOOTER MODERNO === */
 .custom-footer {
   background: rgba(40, 40, 40, 0.95);
-  /* mismo gris oscuro que navbar */
   backdrop-filter: blur(10px);
   color: #fff;
-  /* texto blanco */
   text-align: center;
   padding: 1.5rem 0;
   font-size: 0.95rem;
-  border-top: none;
-  /* opcional, se ve más limpio */
 }
 
 .custom-footer a {
@@ -262,4 +259,17 @@ section article h3 {
 
 .custom-footer i:hover {
   color: #b44554;
+}
+
+.title {
+  color: #b44554;
+  font-weight: bold;
+  border-bottom: 3px solid #ffc107;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 1rem;
+}
+
+.title-container {
+  text-align: center;
 }
